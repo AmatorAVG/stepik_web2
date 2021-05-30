@@ -11,17 +11,15 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-
+#import django
+#django.setup()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'r817^a02d*k(r%tn0i#(-zp+npyll36n0q$9y356+jo89%79@c'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -38,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'qa',
+    'ask',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -46,7 +45,6 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -75,7 +73,7 @@ WSGI_APPLICATION = 'ask.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-if os.name == "nt" or True:
+if os.name == "nt" and False:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -84,14 +82,13 @@ if os.name == "nt" or True:
     }
 else:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'djbase',
-            'USER': 'django',
-            'PASSWORD': 'pass123',
-            'HOST': '127.0.0.1',
-            'PORT': '3306',
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'stepic_web',
+       # 'PASSWORD': '123',
+       # 'HOST': 'localhost',
+        'USER': 'box',
+    }
     }
 
 
